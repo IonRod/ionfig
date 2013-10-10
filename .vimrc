@@ -11,10 +11,33 @@ filetype plugin indent on
 "for MacVim we are to skip this file
 colorscheme desert
 
-"MacVim options
-if has("gui_running")
+
+"---------------------------------------
+"My key mapping
+nmap ,n :NERDTreeToggle<CR>
+
+
+
+"---------------------------------------
+"MacVim settings
+if has("gui_macvim")
 	let macvim_skip_colorscheme = 1
 	set guioptions-=r
 	set guioptions-=L
 	set fu
 endif
+
+
+"---------------------------------------
+"NERDTree settings
+
+"Open NERDTree at startup if no file passed to open
+function! SetUpNERDTree()
+    if 0 == argc()
+        NERDTree
+    end
+    let NERDTreeShowHidden=1
+    map <F2> :NERDTreeToggle<CR>
+endfunction
+
+autocmd VimEnter * call SetUpNERDTree()
