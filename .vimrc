@@ -16,7 +16,7 @@ colorscheme desert
 "My key mapping
 let mapleader = ","
 nmap <Leader>n :NERDTreeToggle<CR>
-nmap <Leader>r :NERDTreeFind<CR>
+nmap <Leader>f :NERDTreeFind<CR>
 nmap <Leader>t :TlistToggle<CR>
 
 
@@ -34,12 +34,25 @@ endif
 "NERDTree settings
 
 "Open NERDTree at startup if no file passed to open
-function! SetUpNERDTree()
-    if 0 == argc()
-        NERDTree
-    end
-    let NERDTreeShowHidden=1
-    map <F2> :NERDTreeToggle<CR>
-endfunction
+"function! SetUpNERDTree()
+    "if 0 == argc()
+        "NERDTree
+    "end
+    "let NERDTreeShowHidden=1
+    "let NERDTreeChDirMode=1    
+"endfunction
 
-autocmd VimEnter * call SetUpNERDTree()
+"autocmd VimEnter * call SetUpNERDTree()
+
+
+"---------------------------------------
+"Taglist settings
+let Tlist_Use_Right_Window   = 1
+let Tlist_WinWidth = 50
+
+"---------------------------------------
+"Set autoreload .vimrc
+augroup reload_vimrc " {
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
