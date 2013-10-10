@@ -14,8 +14,10 @@ colorscheme desert
 
 "---------------------------------------
 "My key mapping
-nmap ,n :NERDTreeToggle<CR>
-
+let mapleader = ","
+nmap <Leader>n :NERDTreeToggle<CR>
+nmap <Leader>r :NERDTreeFind<CR>
+nmap <Leader>t :TlistToggle<CR>
 
 
 "---------------------------------------
