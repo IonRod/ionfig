@@ -11,6 +11,12 @@ filetype plugin indent on
 "for MacVim we are to skip this file
 colorscheme desert
 
+"Search settings
+set incsearch
+set smartcase
+
+"Automatically set current dir to files path
+set autochdir
 
 "---------------------------------------
 "My key mapping
