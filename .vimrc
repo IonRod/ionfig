@@ -18,13 +18,18 @@ set smartcase
 "Automatically set current dir to files path
 set autochdir
 
+"Map CTRL+W n to open vertically
+"nunmap <C+W>n
+nmap <C-W>n :vne<CR>
+
+
 "---------------------------------------
 "My key mapping
 let mapleader = ","
 nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>f :NERDTreeFind<CR>
 nmap <Leader>t :TlistToggle<CR>
-
+:
 
 "---------------------------------------
 "MacVim settings
@@ -58,10 +63,10 @@ let Tlist_WinWidth = 50
 
 "---------------------------------------
 "Set autoreload .vimrc
-augroup reload_vimrc " {
-    autocmd!
-    autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END " }
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
 
 
 "---------------------------------------
@@ -120,3 +125,8 @@ function! s:CloseIfOnlyNerdTreeLeft()
     endif
   endif
 endfunction
+
+
+"---------------------------------------
+"Android sdk
+let g:android_sdk_path = '/Users/ionrod/DevTools/android_sdk' 
