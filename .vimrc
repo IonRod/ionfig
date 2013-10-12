@@ -3,6 +3,15 @@ execute pathogen#infect()
 "Scan all help files using pathogen
 Helptags
 
+"Set node dict
+au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
+
+"Node omnicompletition
+" automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+"Remap omnicomplete
+"imap <c-space> <c-x><c-o> 
+
 "Syntax highligh
 syntax on
 filetype plugin indent on
@@ -10,6 +19,9 @@ filetype plugin indent on
 "Set color sheme
 "for MacVim we are to skip this file
 colorscheme desert
+
+"Set autoindets
+set smartindent
 
 "Search settings
 set incsearch
@@ -19,9 +31,16 @@ set smartcase
 set autochdir
 
 "Map CTRL+W n to open vertically
-"nunmap <C+W>n
 nmap <C-W>n :vne<CR>
 
+"Set tabulation as 4 spaces
+set ts=4
+
+"Encodings
+set encoding=utf-8                                  " set charset translation encoding
+set termencoding=utf-8                              " set terminal encoding
+set fileencoding=utf-8                              " set save encoding
+set fileencodings=utf8,koi8r,cp1251,cp866,ucs-2le   " 
 
 "---------------------------------------
 "My key mapping
@@ -29,7 +48,6 @@ let mapleader = ","
 nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>f :NERDTreeFind<CR>
 nmap <Leader>t :TlistToggle<CR>
-:
 
 "---------------------------------------
 "MacVim settings
