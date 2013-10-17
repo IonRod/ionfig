@@ -49,6 +49,15 @@ nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>f :NERDTreeFind<CR>
 nmap <Leader>t :TlistToggle<CR>
 
+"Map <esc> to jk
+inoremap jk <esc>
+
+"Ctrl+s to save document
+nmap <c-s> :w<CR>
+imap <c-s> <Esc>:w<CR>a
+imap <c-s> <Esc><c-s>
+
+
 "---------------------------------------
 "MacVim settings
 if has("gui_macvim")
